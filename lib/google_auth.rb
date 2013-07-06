@@ -19,7 +19,8 @@ class GoogleAuth
     headers = { 'Content-Type' => 'application/x-www-form-urlencoded' }
 
     # Submit HTTPS post request
-    response, data1 = http.post(login_url, data, headers)
+    response = http.post(login_url, data, headers)
+    data = response.body
     pp response.inspect if print_debug
     pp data.inspect     if print_debug
     unless response.code.eql? '200'
